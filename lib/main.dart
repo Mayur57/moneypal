@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneypal/res/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -30,6 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Center(
+        child: Text("haha"),
+      ),
     );
   }
 }
