@@ -2,9 +2,12 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moneypal/anim/waves.dart';
 import 'package:moneypal/res/colors.dart';
+import 'package:moneypal/screens/PINScreen.dart';
 import 'package:moneypal/utils/strings.dart';
+import 'package:vibration/vibration.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -12,10 +15,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  TextEditingController phoneTextController = TextEditingController();
+  String error;
+
+  @override
+  void dispose() {
+    phoneTextController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _key = GlobalKey<FormState>();
-    TextEditingController phoneTextController = TextEditingController();
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -108,6 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.black.withOpacity(0.3),
                       ),
                       prefixText: "+91 ",
+                      // errorText: error,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
@@ -123,7 +136,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      RegExp regex = new RegExp(
+                        r"^(?:[+0]9)?[0-9]{10}$", /// <--- Regular Expression for valid phone numbers
+                      );
+                      if(phoneTextController.text.length != 10 || !regex.hasMatch(phoneTextController.text) || phoneTextController.text.length == 0){
+                        Fluttertoast.showToast(msg: "Please enter a valid phone number", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+                        Vibration.vibrate(duration: 250);
+                        setState(() {
+                          error = "Please enter a valid phone number";
+                        });
+                      } else {
+                        error = null;
+                        debugPrint(phoneTextController.text);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PINScreen(phone: phoneTextController.text,),
+                            ));
+                      }
+                    },
                     child: Container(
                       height: 45,
                       child: Row(
