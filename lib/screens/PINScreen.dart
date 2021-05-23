@@ -116,7 +116,7 @@ class _PINScreenState extends State<PINScreen> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     onPressed: () {
-                      Navigator.of().pushNamed('/home');
+                      Navigator.of(context).pushNamed('/home');
                     },
                     child: Container(
                       height: 45,

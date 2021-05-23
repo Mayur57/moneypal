@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneypal/screens/PINScreen.dart';
+import 'package:moneypal/screens/homeScreen.dart';
 import 'package:moneypal/screens/loginPage.dart';
 import 'package:moneypal/screens/placeholderScreen.dart';
 
