@@ -13,7 +13,57 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(),
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              Container(
+                color: Colors.red,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.green,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.blue,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.red,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.green,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.blue,
+                height: 200,
+                width: double.infinity,
+              ),              Container(
+                color: Colors.red,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.green,
+                height: 200,
+                width: double.infinity,
+              ),
+              Container(
+                color: Colors.blue,
+                height: 200,
+                width: double.infinity,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
