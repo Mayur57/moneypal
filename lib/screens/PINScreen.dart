@@ -23,6 +23,9 @@ class _PINScreenState extends State<PINScreen> {
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     String uPIN;
+    String mayurPhone = "9825310192";
+    String shivanchalPhone = "9650259032";
+
     return Scaffold(
       body: Stack(
         children: [
@@ -94,8 +97,9 @@ class _PINScreenState extends State<PINScreen> {
                           false, // describes whether the text fields should be obscure or not, defaults to false
                       style: TextStyle(
                           // style for the fields
-                          fontSize: 19.0,
-                          fontWeight: FontWeight.w500),
+                          fontSize: 28.0,
+                          fontFamily: MEDIUM,
+                      ),
                       dashStyle: TextStyle(
                           // dash style
                           fontSize: 25.0,
@@ -122,7 +126,7 @@ class _PINScreenState extends State<PINScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Let's Go",
+                            "Continue",
                             style: TextStyle(
                               fontFamily: MEDIUM,
                               fontSize: 16,
@@ -148,14 +152,6 @@ class _PINScreenState extends State<PINScreen> {
         ],
       ),
     );
-  }
-
-  void setPIN(String phone) {
-    List<String> phoneNumbers = [
-      "9825310192",
-      "9650259032",
-    ];
-
   }
 
   positionBottom(Widget child) => Positioned.fill(

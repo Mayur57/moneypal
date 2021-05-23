@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1042074387306",
+    "project_id": "moneypal-13f25",
+    "storage_bucket": "moneypal-13f25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042074387306:android:9375051715213d757f9b13",
+        "android_client_info": {
+          "package_name": "app.maoneypal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042074387306-7kov3givd6vh3uc7620t1dv0irthsi9j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.maoneypal",
+            "certificate_hash": "43d597d1e92833018aaf5fc7e6ade80744772fde"
+          }
+        },
+        {
+          "client_id": "1042074387306-323ravq6ip6qjqvqloftut31olalsond.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvSW0VbQGfUQSYaoczbznDnswj-gu9TWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042074387306-323ravq6ip6qjqvqloftut31olalsond.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
