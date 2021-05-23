@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moneypal/res/colors.dart';
+import 'package:moneypal/screens/paymentScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -277,6 +278,48 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget contact(String name) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: 75,
+          width: 75,
+          decoration: BoxDecoration(
+            color: primaryAppColor.withOpacity(0.2),
+            border: Border.all(
+              color: primaryAppColor,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: IconButton(
+            icon: Icon(
+              Icons.person,
+              size: 45,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => PaymentScreen(name: _removeNewLine(name))),
+              );
+            },
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          name.length > 18 ? name.substring(0, 15) + "..." : name,
+          style: TextStyle(
+            fontFamily: "Gilroy Medium",
+            color: Colors.black54,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
 }
 
 Widget appbar() {
@@ -319,40 +362,6 @@ Widget appbar() {
   );
 }
 
-Widget contact(String name) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Container(
-        height: 75,
-        width: 75,
-        decoration: BoxDecoration(
-          color: primaryAppColor.withOpacity(0.2),
-          border: Border.all(
-            color: primaryAppColor,
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: IconButton(
-          icon: Icon(
-            Icons.person,
-            size: 45,
-          ),
-          onPressed: () {},
-        ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Text(
-        name.length > 18 ? name.substring(0, 15) + "..." : name,
-        style: TextStyle(
-          fontFamily: "Gilroy Medium",
-          color: Colors.black54,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    ],
-  );
+_removeNewLine(String s) {
+  return s.replaceAll("\n", " ");
 }
