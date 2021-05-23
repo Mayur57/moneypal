@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:moneypal/screens/FailureScreen.dart';
+import 'package:moneypal/screens/successPage.dart';
 import 'package:moneypal/utils/strings.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -26,11 +30,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          double FACTOR_OF_SUCCESS = 0.0;
+          Random r = new Random();
+          double tippingPoint = r.nextDouble();
           if(textController.text == "" || textController.text == "0" || textController.text == "0.0") {
             Fluttertoast.showToast(msg: "Enter a valid amount");
           } else {
+            print(tippingPoint);
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => SuccessPage())
+              MaterialPageRoute(builder: (_) => tippingPoint < FACTOR_OF_SUCCESS ? SuccessScreen(name: widget.name, amount: textController.text,) : FailureScreen(name: widget.name))
             );
           }
         },
