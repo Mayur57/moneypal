@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moneypal/utils/strings.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -24,7 +25,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          if(textController.text == "" || textController.text == "0" || textController.text == "0.0") {
+            Fluttertoast.showToast(msg: "Enter a valid amount");
+          } else {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => SuccessPage())
+            );
+          }
+        },
         child: Icon(Icons.monetization_on_outlined),
       ),
       body: SafeArea(
@@ -33,6 +42,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset("assets/images/g-01.png"),
+              SizedBox(height: 30,),
               Text(
                   "You are paying",
                 style: TextStyle(fontSize: 20, fontFamily: MEDIUM,),
@@ -54,13 +64,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Container(
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: TextField(
-                      decoration: InputDecoration(border: InputBorder.none),
+                      decoration: InputDecoration(border: InputBorder.none, hintText: '00.00'),
                         controller: textController,
                         keyboardType: TextInputType.phone,
                         style: TextStyle(
                           fontFamily: MEDIUM,
-                          fontSize: 36,
+                          fontSize: 42,
                           color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
