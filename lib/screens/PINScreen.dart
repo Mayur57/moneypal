@@ -22,9 +22,7 @@ class _PINScreenState extends State<PINScreen> {
     TextEditingController phoneTextController = TextEditingController();
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
-    String uPIN;
-    String mayurPhone = "9825310192";
-    String shivanchalPhone = "9650259032";
+    String uPIN='123456';
 
     return Scaffold(
       body: Stack(
@@ -106,7 +104,7 @@ class _PINScreenState extends State<PINScreen> {
                           color: Colors.grey),
                       submit: (String pin) {
                         setState(() {
-                          uPIN = pin;
+                          // uPIN = pin;
                         });
                       }),
                   SizedBox(
@@ -118,7 +116,7 @@ class _PINScreenState extends State<PINScreen> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     onPressed: () {
-
+                      Navigator.of().pushNamed('/home');
                     },
                     child: Container(
                       height: 45,

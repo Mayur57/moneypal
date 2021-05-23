@@ -10,6 +10,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case '/pin':
         return MaterialPageRoute(builder: (_) => PINScreen());
+      case '/home':
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       default:
         return MaterialPageRoute(builder: (_) => PlaceholderScreen());
     }
