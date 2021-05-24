@@ -17,6 +17,7 @@ dependencies:
   vibration: 1.7.3
   pin_view: 1.0.1
   font_awesome_flutter: 8.12.0
+  qr_code_scanner: ^0.3.5
 
 dev_dependencies:
   flutter_test:
