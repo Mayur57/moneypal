@@ -356,7 +356,9 @@ Widget appbar(context) {
               Icons.settings,
               color: Colors.black38,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed("/set");
+            },
           ),
         ),
       ],

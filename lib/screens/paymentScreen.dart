@@ -38,7 +38,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             shouldShowProgressCircle = true;
           });
           _timer = new Timer(const Duration(milliseconds: 1000), () {
-            double FACTOR_OF_SUCCESS = 0.65; /// 0.0 always fails; 1.0 always succeeds
+            double FACTOR_OF_SUCCESS = 0.9; /// 0.0 always fails; 1.0 always succeeds
             Random r = new Random();
             double tippingPoint = r.nextDouble();
             if(textController.text == "" || textController.text == "0" || textController.text == "0.0") {
