@@ -264,9 +264,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   positionBottom(Widget child) => Positioned.fill(
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: child,
-        ),
-      );
+    child: Align(
+      alignment: Alignment.bottomCenter,
+      child: child,
+    ),
+  );
 }
