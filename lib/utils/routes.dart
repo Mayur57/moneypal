@@ -4,6 +4,7 @@ import 'package:moneypal/screens/QRScreen.dart';
 import 'package:moneypal/screens/homeScreen.dart';
 import 'package:moneypal/screens/loginPage.dart';
 import 'package:moneypal/screens/placeholderScreen.dart';
+import 'package:moneypal/screens/settingsScreen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -16,6 +17,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case '/qr':
         return MaterialPageRoute(builder: (_) => QRScreen());
+      case '/set':
+        return MaterialPageRoute(builder: (_) => SettingsScreen());
       default:
         return MaterialPageRoute(builder: (_) => PlaceholderScreen());
     }
