@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'moneypal',
+      theme: ThemeData(
+        primaryColor: primaryAppColor,
+      ),
       initialRoute: '/home',
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,

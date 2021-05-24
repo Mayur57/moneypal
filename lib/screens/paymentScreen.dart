@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,26 +24,34 @@ class _PaymentScreenState extends State<PaymentScreen> {
     super.dispose();
   }
 
+  Timer _timer;
+
   @override
   Widget build(BuildContext context) {
     String name = widget.name;
+    bool shouldShowProgressCircle = false;
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          double FACTOR_OF_SUCCESS = 0.9; /// 0.0 always fails; 1.0 always succeeds
-          Random r = new Random();
-          double tippingPoint = r.nextDouble();
-          if(textController.text == "" || textController.text == "0" || textController.text == "0.0") {
-            Fluttertoast.showToast(msg: "Enter a valid amount");
-          } else {
-            print(tippingPoint);
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => tippingPoint < FACTOR_OF_SUCCESS ? SuccessScreen(name: widget.name, amount: textController.text,) : FailureScreen(name: widget.name))
-            );
-          }
+          setState(() {
+            shouldShowProgressCircle = true;
+          });
+          _timer = new Timer(const Duration(milliseconds: 1000), () {
+            double FACTOR_OF_SUCCESS = 0.65; /// 0.0 always fails; 1.0 always succeeds
+            Random r = new Random();
+            double tippingPoint = r.nextDouble();
+            if(textController.text == "" || textController.text == "0" || textController.text == "0.0") {
+              Fluttertoast.showToast(msg: "Enter a valid amount");
+            } else {
+              print(tippingPoint);
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => tippingPoint < FACTOR_OF_SUCCESS ? SuccessScreen(name: widget.name, amount: textController.text,) : FailureScreen(name: widget.name))
+              );
+            }
+          });
         },
-        child: Icon(Icons.monetization_on_outlined),
+        child: shouldShowProgressCircle ? Icon(Icons.gamepad): Icon(Icons.monetization_on_outlined),
       ),
       body: SafeArea(
         child: Center(
