@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:moneypal/anim/waves.dart';
 import 'package:moneypal/utils/strings.dart';
 
@@ -59,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Settings",
+                      "Preferences",
                       style: TextStyle(
                         fontSize: 43,
                         fontFamily: BOLD,
@@ -67,12 +68,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/bal");
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 32.0, left: 32),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Bank Balance",
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontFamily: MEDIUM,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 32),
+                  padding: const EdgeInsets.only(top: 32.0, left: 32),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Bank Balance",
+                      "Connected Banks",
                       style: TextStyle(
                         fontSize: 28,
                         fontFamily: MEDIUM,
@@ -81,20 +100,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 32),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Banks",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontFamily: MEDIUM,
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 32),
+                  padding: const EdgeInsets.only(top: 32.0, left: 32),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -106,16 +112,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 32),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Logout",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontFamily: MEDIUM,
-                        color: Colors.redAccent,
+                GestureDetector(
+                  onTap: () {
+                    SystemNavigator.pop();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 32.0, left: 32),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontFamily: MEDIUM,
+                          color: Colors.redAccent,
+                        ),
                       ),
                     ),
                   ),

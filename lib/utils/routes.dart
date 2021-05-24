@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moneypal/screens/PINScreen.dart';
 import 'package:moneypal/screens/QRScreen.dart';
+import 'package:moneypal/screens/balanceScreen.dart';
 import 'package:moneypal/screens/homeScreen.dart';
 import 'package:moneypal/screens/loginPage.dart';
 import 'package:moneypal/screens/placeholderScreen.dart';
@@ -19,6 +20,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => QRScreen());
       case '/set':
         return MaterialPageRoute(builder: (_) => SettingsScreen());
+      case '/bal':
+        return MaterialPageRoute(builder: (_) => BalanceScreen());
       default:
         return MaterialPageRoute(builder: (_) => PlaceholderScreen());
     }
