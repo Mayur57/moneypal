@@ -99,15 +99,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 32.0, left: 32),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Transactions",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontFamily: MEDIUM,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/trans');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 32.0, left: 32),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Transactions",
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontFamily: MEDIUM,
+                        ),
                       ),
                     ),
                   ),
