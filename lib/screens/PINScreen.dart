@@ -10,7 +10,7 @@ import 'package:vibration/vibration.dart';
 
 class PINScreen extends StatefulWidget {
   String phone;
-  PINScreen({Key key, @required this.phone}) : super(key: key);
+  PINScreen({Key key, this.phone}) : super(key: key);
   @override
   _PINScreenState createState() => _PINScreenState();
 }

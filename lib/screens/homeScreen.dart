@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              appbar(),
+              appbar(context),
               SizedBox(
                 height: 20,
               ),
@@ -322,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget appbar() {
+Widget appbar(context) {
   return Container(
     height: 80,
     child: Row(
@@ -335,7 +335,9 @@ Widget appbar() {
               FontAwesomeIcons.qrcode,
               color: Colors.black38,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed("/qr");
+            },
           ),
         ),
         Text(
